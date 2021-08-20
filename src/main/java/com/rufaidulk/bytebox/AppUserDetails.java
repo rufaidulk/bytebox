@@ -11,12 +11,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class AppUserDetails implements UserDetails
 {
+    private int id;
     private String email;
     private String password;
     private List<GrantedAuthority> authorities;
     
     public AppUserDetails(User user) 
     {
+        this.id = user.getId();
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.authorities = new ArrayList<>();
@@ -26,6 +28,11 @@ public class AppUserDetails implements UserDetails
     public Collection<? extends GrantedAuthority> getAuthorities() 
     {
         return this.authorities;
+    }
+
+    public int getId()
+    {
+        return this.id;
     }
 
     @Override
