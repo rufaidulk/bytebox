@@ -13,16 +13,21 @@ public class StorageService
 
     public static boolean createDirectory(String basePath, String name)
     {
-        // File file = new File(ROOT_LOCATION + "/" + basePath, name);
-        // file.mkdir();
-
-        return false;
+        File file = new File(ROOT_LOCATION + "/" + basePath, name);
+        if (file.exists() == false) {
+            return file.mkdir();
+        }
+        
+        return true;
     }
 
     public static boolean createBox(Box box)
     {
         File file = new File(ROOT_LOCATION + "/", box.getName());
-
-        return file.mkdir();
+        if (file.exists() == false) {
+            return file.mkdir();
+        }
+        
+        return true;
     }
 }

@@ -33,6 +33,9 @@ public class Directory
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = true)
+    private String fullPath;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "box_id", nullable = false)
     private Box box;

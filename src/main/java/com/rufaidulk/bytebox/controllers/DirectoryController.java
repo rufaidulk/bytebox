@@ -42,7 +42,7 @@ public class DirectoryController
         Box box = boxOptional.orElseThrow(() -> new ResourceNotFoundException("box not found."));
 
         directoryService.setRequest(request);
-        Directory directory = directoryService.createDirectory(box);
+        Directory directory = directoryService.handle(box);
         Map<String, Object> response = new HashMap<>();
         response.put("status", "SUCCESS");
         response.put("id", directory.getId());

@@ -10,5 +10,5 @@ public class DirectoryCreateRequest
     @NotEmpty
     public String name;
 
-    public int parentId;
+    public Integer parentId;
 }
